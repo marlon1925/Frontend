@@ -37,9 +37,9 @@ const ActualizarAuditorio = () => {
 
     return (
         <div>
-            <h1 className='font-black text-4xl text-gray-500'>Updated Patient</h1>
+            <h1 className='font-black text-4xl text-gray-500'>Actualizar auditorio</h1>
             <hr className='my-4' />
-            <p className='mb-8'>This module allows you to update the data of a registered patient</p>
+            <p className='mb-8'>Este módulo le permite actualizar los datos de un auditorio registrado</p>
             {
                 Object.keys(auditorio).length != 0 ?
                     (

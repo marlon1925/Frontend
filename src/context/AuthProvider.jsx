@@ -9,7 +9,7 @@ const AuthProvider = ({ children }) => {
     const perfil = async(token) => {
         try {
             // USAR ENDPOINT DEL BACK
-            const url = `${import.meta.env.VITE_BACKEND_URL}/auditorios`
+            const url = `${import.meta.env.VITE_BACKEND_URL}/usuarios`
             const options={
                 headers: {
                     'Content-Type': 'application/json',

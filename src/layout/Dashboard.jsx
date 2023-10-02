@@ -40,7 +40,7 @@ const Dashboard = () => {
             <div className='flex-1 flex flex-col justify-between h-screen bg-gray-100'>
                 <div className='bg-gray-800 py-2 flex md:justify-end items-center gap-5 justify-center'>
                     <div className='text-md font-semibold text-slate-100'>
-                        {auth?.nombre} - Vet
+                        {auth?.nombre} - Bienvenido
                     </div>
                     <div>
                         <img src="https://cdn-icons-png.flaticon.com/512/4715/4715329.png" alt="img-client" className="border-2 border-green-600 rounded-full" width={50} height={50} />

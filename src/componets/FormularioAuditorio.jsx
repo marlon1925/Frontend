@@ -4,6 +4,7 @@ import { useForm, Controller } from 'react-hook-form';
 import AuthContext from "../context/AuthProvider"
 import axios from 'axios';
 import Mensaje from "./Alertas/Mensaje";
+import { da } from "date-fns/locale";
 
 export const FormularioAuditorio = ({ paciente, isEditMode }) => {
 
@@ -32,7 +33,7 @@ export const FormularioAuditorio = ({ paciente, isEditMode }) => {
 
             // Obtener la lista actual de pacientes
             const token = localStorage.getItem("token");
-            const url = `${import.meta.env.VITE_BACKEND_URL}/clientes`;
+            const url = `${import.meta.env.VITE_BACKEND_URL}/auditorios`;
             const options = {
                 headers: {
                     "Content-Type": "application/json",
@@ -47,11 +48,12 @@ export const FormularioAuditorio = ({ paciente, isEditMode }) => {
             const duplicado = pacientesExistente.some((pacienteExistente) => {
                 if (!isEditMode) {
                     // Aquí, verifica la condición si NO estás en modo de edición
+
                     return (
-                        pacienteExistente.nombre.toLowerCase() === data.nombre.toLowerCase());
+                        pacienteExistente.nombre.toLowerCase() === data.nombre.toLowerCase() ||
+                        pacienteExistente.codigo.toLowerCase() === data.codigo.toLowerCase());
                 }
             });
-
 
             if (duplicado) {
                 setMensaje({
@@ -59,12 +61,12 @@ export const FormularioAuditorio = ({ paciente, isEditMode }) => {
                     tipo: false,
                 });
                 return;
-            }
+            } 
 
             // Solicitud al endpoint
             if (paciente?._id) {
                 const token = localStorage.getItem("token");
-                const url = `${import.meta.env.VITE_BACKEND_URL}/cliente/actualizar/${paciente._id}`;
+                const url = `${import.meta.env.VITE_BACKEND_URL}/auditorio/actualizar/${paciente._id}`;
                 const options = {
                     headers: {
                         method: "PUT",
@@ -77,7 +79,8 @@ export const FormularioAuditorio = ({ paciente, isEditMode }) => {
             } else {
                 const token = localStorage.getItem("token");
                 trimmedData.id = auth._id;
-                const url = `${import.meta.env.VITE_BACKEND_URL}/cliente/registro`;
+                console.log("soy la dataaaaa", trimmedData)
+                const url = `${import.meta.env.VITE_BACKEND_URL}/auditorio/registro`;
                 const options = {
                     headers: {
                         "Content-Type": "application/json",
@@ -104,6 +107,39 @@ export const FormularioAuditorio = ({ paciente, isEditMode }) => {
                 </div>
                 <p className='mb-8'>Este módulo le permite registrar un nuevo auditorio</p>
 
+                <label
+                    htmlFor='codigo:'
+                    className='text-gray-700  font-bold text-sm'>Codigo: </label>
+                <Controller
+                    name='codigo'
+                    control={control}
+                    defaultValue=''
+                    rules={{
+                        required: 'Campo requerido',
+                        pattern: {
+                            value: /^[A-Za-z\s]+$/,
+                            message: 'Ingrese solo letras',
+                        }
+                    }}
+                    render={({ field, fieldState }) => (
+                        <div>
+                            <input
+                                {...field}
+                                type="text"
+                                className={`border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md mb-5 ${fieldState.invalid ? 'border-red-500' : ''
+                                    }`}
+                                placeholder='nombre'
+                                maxLength={20}
+                                disabled={isEditMode}
+                            />
+                            {fieldState.error && (
+                                <p className="text-red-500 text-sm">{fieldState.error.message}</p>
+                            )}
+                        </div>
+                    )}
+                />
+            </div>
+            <div>
                 <label
                     htmlFor='nombre:'
                     className='text-gray-700  font-bold text-sm'>Nombre: </label>
