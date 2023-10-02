@@ -62,7 +62,7 @@ const TablaAuditorio = () => {
             if (confirmar) {
                 const token = localStorage.getItem("token");
                 const url = `${import.meta.env.VITE_BACKEND_URL
-                    }/clientes/eliminar/${id}`;
+                    }/auditorio/eliminar/${id}`;
                 const headers = {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${token}`,

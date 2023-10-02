@@ -62,7 +62,7 @@ const TablaConferencista = () => {
             if (confirmar) {
                 const token = localStorage.getItem("token");
                 const url = `${import.meta.env.VITE_BACKEND_URL
-                    }/clientes/eliminar/${id}`;
+                    }/conferencista/eliminar/${id}`;
                 const headers = {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${token}`,
@@ -131,13 +131,7 @@ const TablaConferencista = () => {
                 accessor: "acciones",
                 Cell: ({ row }) => (
                     <div className="py-2 text-center">
-                        {/* Reemplaza MdDeleteForever con FaTrashAlt */}
-                        <FaFolderOpen
-                            className="h-7 w-7 text-slate-800 cursor-pointer inline-block mr-2"
-                            onClick={() =>
-                                navigate(`/dashboard/visualizar/${row.original._id}`)
-                            }
-                        />
+     ¿
                         <FaEdit
                             className="h-7 w-7 text-slate-800 cursor-pointer inline-block mr-2"
                             onClick={() =>

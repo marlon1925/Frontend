@@ -24,6 +24,7 @@ const ActualizarAuditorio = () => {
                     }
                 }
                 const respuesta = await axios.get(url, options)
+                console.log(respuesta.data)
                 setAuditorio(respuesta.data);
                 setIsEditMode(true); // Establecer el modo de edición en true
             } catch (error) {

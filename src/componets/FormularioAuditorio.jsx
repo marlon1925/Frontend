@@ -112,7 +112,7 @@ export const FormularioAuditorio = ({ paciente, isEditMode }) => {
                     control={control}
                     defaultValue=''
                     rules={{
-                        required: 'Campo requeridoCampo requerido',
+                        required: 'Campo requerido',
                         pattern: {
                             value: /^[A-Za-z\s]+$/,
                             message: 'Ingrese solo letras',
@@ -146,7 +146,7 @@ export const FormularioAuditorio = ({ paciente, isEditMode }) => {
                     control={control}
                     defaultValue=''
                     rules={{
-                        required: 'Campo requeridoCampo requerido',
+                        required: 'Campo requerido',
                         pattern: {
                             value: /^[A-Za-z\s]+$/,
                             message: 'Ingrese solo letras',
@@ -214,7 +214,7 @@ export const FormularioAuditorio = ({ paciente, isEditMode }) => {
                     control={control}
                     defaultValue=''
                     rules={{
-                        required: 'Campo requeridoCampo requerido',
+                        required: 'Campo requerido',
                         pattern: {
                             value: /^[A-Za-z\s]+$/,
                             message: 'Ingrese solo letras',
@@ -247,7 +247,7 @@ export const FormularioAuditorio = ({ paciente, isEditMode }) => {
                     control={control}
                     defaultValue=''
                     rules={{
-                        required: 'Campo requeridoCampo requerido',
+                        required: 'Campo requerido',
                         pattern: {
                             value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
                             message: 'Correo electrónico no valido',
@@ -280,7 +280,7 @@ export const FormularioAuditorio = ({ paciente, isEditMode }) => {
                     control={control}
                     defaultValue=''
                     rules={{
-                        required: 'Campo requeridoCampo requerido',
+                        required: 'Campo requerido',
                         pattern: {
                             value: /^[A-Za-z\s]+$/,
                             message: 'Ingrese solo letras',
@@ -313,7 +313,7 @@ export const FormularioAuditorio = ({ paciente, isEditMode }) => {
                     control={control}
                     defaultValue=''
                     rules={{
-                        required: 'Campo requeridoCampo requerido',
+                        required: 'Campo requerido',
                         pattern: {
                             value: /^[0-9]{10}$/,
                             message: 'Valid phone with 10 digits',
@@ -344,7 +344,7 @@ export const FormularioAuditorio = ({ paciente, isEditMode }) => {
                     control={control}
                     defaultValue=''
                     rules={{
-                        required: 'Campo requeridoCampo requerido'
+                        required: 'Campo requerido'
                     }}
                     render={({ field, fieldState }) => (
                         <div>
